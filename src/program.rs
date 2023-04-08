@@ -22,8 +22,6 @@ pub struct Interpreter<I: Iterator, V> {
     instruction: Option<Instruction<V>>,
 }
 
-impl<I: Iterator, V> Interpreter<I, V> {}
-
 impl<I> Iterator for Interpreter<I, isize>
 where
     I: Iterator<Item = String>,
@@ -65,7 +63,7 @@ where
     }
 }
 
-pub trait InterpretIter: Iterator<Item = String> + Sized {
+pub trait InterpretIter: Iterator + Sized {
     fn interpret(self) -> Interpreter<Self, isize>;
 }
 

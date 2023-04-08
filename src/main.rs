@@ -44,6 +44,7 @@ fn main() {
                 let sprite_position = signals.next().unwrap();
                 let sprite_area = (sprite_position - pad_left)..=(sprite_position + pad_right);
                 line.push(if sprite_area.contains(&i) { '#' } else { '.' });
+                line.push(' ');
             }
             println!("{}", line);
         }
